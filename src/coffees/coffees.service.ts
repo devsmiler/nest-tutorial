@@ -6,8 +6,8 @@ export class CoffeesService {
   private coffees: Coffee[] = [
     {
       id: 1,
-      name: 'Mr.Anderson',
-      brand: 'Matrix',
+      name: 'Shipwreck Roast',
+      brand: 'Buddy Brew',
       flavors: ['chocolate', 'vanilla'],
     },
   ];
@@ -16,23 +16,23 @@ export class CoffeesService {
     return this.coffees;
   }
 
-  findeOne(id: string) {
+  findOne(id: string) {
     return this.coffees.find(item => item.id === +id);
   }
 
   create(createCoffeeDto: any) {
     this.coffees.push(createCoffeeDto);
   }
-  update(id: string, updateCoffeeDto: any) {
-    const exisitingCoffee = this.findeOne(id);
-    if (exisitingCoffee){
 
+  update(id: string, updateCoffeeDto: any) {
+    const existingCoffee = this.findOne(id);
+    if (existingCoffee) {
+      // update the existing entity
     }
   }
 
   remove(id: string) {
-    const coffeeIndex = this.coffees.findIndex((item) => item.id === +id);
-
+    const coffeeIndex = this.coffees.findIndex(item => item.id === +id);
     if (coffeeIndex >= 0) {
       this.coffees.splice(coffeeIndex, 1);
     }
